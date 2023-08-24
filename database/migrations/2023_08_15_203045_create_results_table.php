@@ -17,6 +17,25 @@ class CreateResultsTable extends Migration
             $table->id();
             $table->string('nombre_resultado');
             $table->string('descripcion');
+            $table->integer('horas');
+            $table->dateTime('fecha_inicio');
+            $table->dateTime('fecha_fin');
+            $table->string('url_formato');
+
+            $table->unsignedBigInteger('id_instructor')->unique();
+            $table->foreign('id_instructor')
+            ->references('id')
+            ->on('instructors')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
+
+            $table->unsignedBigInteger('id_competencia')->unique();
+            $table->foreign('id_competencia')
+            ->references('id')
+            ->on('competences')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
+
             $table->timestamps();
         });
     }

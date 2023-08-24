@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCompetencesTable extends Migration
+class CreateInstructorsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,14 @@ class CreateCompetencesTable extends Migration
      */
     public function up()
     {
-        Schema::create('competences', function (Blueprint $table) {
+        Schema::create('instructors', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre_competencia');
-            $table->string('descripcion');
-            $table->string('anexo');
+            $table->string('profesion');
 
-            $table->unsignedBigInteger('id_resultado')->unique();
-
-            $table->foreign('id_resultado')
+            $table->unsignedBigInteger('id_user')->unique();
+            $table->foreign('id_user')
             ->references('id')
-            ->on('results')
+            ->on('users')
             ->onDelete('cascade')
             ->onUpdate('cascade');
 
@@ -38,6 +35,6 @@ class CreateCompetencesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('competences');
+        Schema::dropIfExists('instructors');
     }
 }

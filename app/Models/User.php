@@ -41,4 +41,16 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    //relacion 1 a muchos roles
+
+    public function role(){
+        return $this->belongsTo('App\Models\Role');
+    }
+
+    //Relacion uno a uno polimorfica image
+    public function image(){
+        return $this->morphOne('App\Models\Image','imageable');
+    }
+
 }

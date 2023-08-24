@@ -13,4 +13,6 @@ class Result extends Model
     public function competences(){
         return $this->hasMany('App\Models\Competence');
     }
+
+    
 }
