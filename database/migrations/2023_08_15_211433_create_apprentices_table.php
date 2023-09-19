@@ -18,16 +18,16 @@ class CreateApprenticesTable extends Migration
             $table->string('estado');
             $table->string('etapa');
 
-            $table->unsignedBigInteger('id_ficha')->unique();
+            $table->unsignedBigInteger('ficha_id')->nullable();
             
-            $table->foreign('id_ficha')
+            $table->foreign('ficha_id')
             ->references('id')
             ->on('datasheets')
             ->onDelete('cascade')
             ->onUpdate('cascade');
 
-            $table->unsignedBigInteger('id_user')->unique();
-            $table->foreign('id_user')
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->foreign('user_id')
             ->references('id')
             ->on('users')
             ->onDelete('cascade')

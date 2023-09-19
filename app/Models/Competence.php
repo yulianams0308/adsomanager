@@ -10,8 +10,8 @@ class Competence extends Model
     use HasFactory;
     
     //relacion 1 a muchos resultado
-    public function result(){
-        return $this->belongsTo('App\Models\Result');
+    public function results(){
+        return $this->hasMany('App\Models\Result');
     }
 
     public function datasheets(){

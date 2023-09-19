@@ -11,4 +11,8 @@ class Instructor extends Model
     public function datasheets(){
         return $this->belongsToMany('App\Models\Datasheet');
     }
+
+    public function results(){
+        return $this->hasMany('App\Models\Result');
+    }
 }

@@ -16,16 +16,16 @@ class CreateDatasheetInstructorTable extends Migration
         Schema::create('datasheet_instructor', function (Blueprint $table) {
             $table->id();
 
-            $table->unsignedBigInteger('id_ficha')->nullable();
-            $table->unsignedBigInteger('id_instructor')->nullable();
+            $table->unsignedBigInteger('ficha_id')->nullable();
+            $table->unsignedBigInteger('instructor_id')->nullable();
 
-            $table->foreign('id_ficha')
+            $table->foreign('ficha_id')
             ->references('id')
             ->on('datasheets')
             ->onDelete('cascade')
             ->onUpdate('cascade');
 
-            $table->foreign('id_instructor')
+            $table->foreign('instructor_id')
             ->references('id')
             ->on('instructors')
             ->onDelete('cascade')

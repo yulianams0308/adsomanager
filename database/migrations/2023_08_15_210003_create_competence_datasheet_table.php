@@ -16,16 +16,16 @@ class CreateCompetenceDatasheetTable extends Migration
         Schema::create('competence_datasheet', function (Blueprint $table) {
             $table->id();
 
-            $table->unsignedBigInteger('id_ficha')->nullable();
-            $table->unsignedBigInteger('id_competencia')->nullable();
+            $table->unsignedBigInteger('ficha_id')->nullable();
+            $table->unsignedBigInteger('competencia_id')->nullable();
 
-            $table->foreign('id_ficha')
+            $table->foreign('ficha_id')
             ->references('id')
             ->on('datasheets')
             ->onDelete('cascade')
             ->onUpdate('cascade');
 
-            $table->foreign('id_competencia')
+            $table->foreign('competencia_id')
             ->references('id')
             ->on('competences')
             ->onDelete('cascade')

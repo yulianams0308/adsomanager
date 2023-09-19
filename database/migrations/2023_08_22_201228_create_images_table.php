@@ -20,8 +20,8 @@ class CreateImagesTable extends Migration
             $table->unsignedBigInteger('imageable_id')->nullable();
             $table->primary(['imageable_id','imageable_type']);
 
-            $table->unsignedBigInteger('id_user')->unique();
-            $table->foreign('id_user')
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->foreign('user_id')
             ->references('id')
             ->on('users')
             ->onDelete('cascade')

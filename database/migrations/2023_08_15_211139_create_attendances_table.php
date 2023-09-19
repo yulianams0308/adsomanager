@@ -15,11 +15,12 @@ class CreateAttendancesTable extends Migration
     {
         Schema::create('attendances', function (Blueprint $table) {
             $table->id();
+            
 
             
-            $table->unsignedBigInteger('id_sesion')->unique();
+            $table->unsignedBigInteger('sesion_id')->unique();
 
-            $table->foreign('id_sesion')
+            $table->foreign('sesion_id')
             ->references('id')
             ->on('sessions')
             ->onDelete('cascade')

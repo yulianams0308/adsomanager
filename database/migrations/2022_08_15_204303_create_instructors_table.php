@@ -17,8 +17,8 @@ class CreateInstructorsTable extends Migration
             $table->id();
             $table->string('profesion');
 
-            $table->unsignedBigInteger('id_user')->unique();
-            $table->foreign('id_user')
+            $table->unsignedBigInteger('user_id')->unique();
+            $table->foreign('user_id')
             ->references('id')
             ->on('users')
             ->onDelete('cascade')

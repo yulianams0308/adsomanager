@@ -16,18 +16,20 @@ class CreateSessionsTable extends Migration
         Schema::create('sessions', function (Blueprint $table) {
             $table->id();
             $table->string('observacion');
+            $table->dateTime('fecha_inicio');
+            $table->dateTime('fecha_fin');
 
-            $table->unsignedBigInteger('id_ficha')->unique();
-            $table->unsignedBigInteger('id_ambiente')->unique();
+            $table->unsignedBigInteger('ficha_id')->nullable();
+            $table->unsignedBigInteger('ambiente_id')->nullable();
 
 
-            $table->foreign('id_ficha')
+            $table->foreign('ficha_id')
             ->references('id')
             ->on('datasheets')
             ->onDelete('cascade')
             ->onUpdate('cascade');
 
-            $table->foreign('id_ambiente')
+            $table->foreign('ambiente_id')
             ->references('id')
             ->on('rooms')
             ->onDelete('cascade')
